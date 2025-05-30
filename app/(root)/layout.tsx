@@ -1,13 +1,4 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "@/assets/styles/globals.css";
-
-const inter = Inter({subsets: ['latin']})
-
-export const metadata: Metadata = {
-  title: "ProStore",
-  description: "A modern e-commerce app built with Netx.js",
-};
+import Header from "@/components/shared/header";
 
 export default function RootLayout({
   children,
@@ -16,6 +7,7 @@ export default function RootLayout({
 }>) {
   return (
     <div className="flex h-screen flex-col">
+        <Header />
         <main className="flex-1 wrapper">
             {children}
         </main>
