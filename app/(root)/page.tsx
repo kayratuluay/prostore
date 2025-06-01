@@ -1,9 +1,5 @@
-export const metadata = {
-  title: 'Home',
-}
+const Homepage = async () => {
+  return <>ProStore</>;
+};
 
-const Homepage = () => {
-  return ( <>ProStore</> );
-}
- 
 export default Homepage;
