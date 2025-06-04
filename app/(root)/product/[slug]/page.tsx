@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { getProductBySlug } from "@/lib/actions/products.actions";
 import { notFound } from "next/navigation";
 import ProductPrice from "@/components/shared/product/product-price";
+import ProductImages from "@/components/shared/product/product-images";
 
 const ProductDetailsPage = async (props: {
   params: Promise<{ slug: string }>;
@@ -18,7 +19,9 @@ const ProductDetailsPage = async (props: {
       <section>
         <div className="grid grid-col-1 md:grid-cols-5">
           {/* Images Column */}
-          <div className="col-span-2">{/* Images Component */}</div>
+          <div className="col-span-2">
+            <ProductImages images={product.images} />
+          </div>
           {/* Details Column */}
           <div className="col-span-2 p-5">
             <div className="flex flex-col gap-6">
@@ -43,7 +46,7 @@ const ProductDetailsPage = async (props: {
           </div>
           {/* Action Column */}
           <div>
-            <Card>
+            <Card className="p-0">
               <CardContent className="p-4">
                 <div className="mb-2 flex justify-between">
                   <div>Price</div>
@@ -54,14 +57,14 @@ const ProductDetailsPage = async (props: {
                 <div className="mb-2 flex justify-between">
                   <div>Status</div>
                   {product.stock > 0 ? (
-                    <Badge variant="outline">In Stock</Badge>
+                    <Badge variant="outline">In stock</Badge>
                   ) : (
-                    <Badge variant="destructive">Out Of Stock</Badge>
+                    <Badge variant="destructive">Unavailable</Badge>
                   )}
                 </div>
                 {product.stock > 0 && (
-                  <div className="flex-center">
-                    <Button className="w-full">Add To Cart</Button>
+                  <div className=" flex-center">
+                    <Button className="w-full">Add to cart</Button>
                   </div>
                 )}
               </CardContent>
